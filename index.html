@@ -2,41 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Fart Analyze Agency</title>
     <style>
+        /* Reset and base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Comic Sans MS', cursive;
             background-image: url('https://github.com/FartAnalyzer/FartAnalyzer/blob/60c020ba32b33e34a4bcaab1ac6ac93c904d0d63/Labor.jpg?raw=true');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            margin: 0;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 16px; /* Smaller base font size for mobile */
+            font-size: 16px; /* Default font size for mobile */
+            line-height: 1.5; /* Better readability */
         }
+
         .main-container {
-            width: 90%; /* Wider on mobile */
+            width: 90%;
             max-width: 1200px;
-            padding: 10px; /* Reduced padding for smaller screens */
-            box-sizing: border-box;
+            padding: 10px;
         }
+
         h1 {
             color: #000;
-            text-shadow: 1px 1px 2px #835834; /* Reduced shadow for better readability on small screens */
-            font-size: 2em; /* Relative size for scalability */
+            text-shadow: 1px 1px 2px #835834;
+            font-size: clamp(1.5rem, 8vw, 2.5rem); /* Fluid typography */
             text-align: center;
         }
+
         .links {
             display: flex;
-            flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+            flex-wrap: wrap;
             justify-content: center;
+            gap: 10px; /* Better spacing for mobile */
         }
+
         .links a {
-            margin: 5px;
             text-decoration: none;
             color: #000000;
             border: 2px solid #835834;
@@ -44,28 +54,32 @@
             border-radius: 5px;
             transition: all 0.3s ease;
             font-weight: bold;
-            font-size: 1em; /* Relative font size */
+            font-size: clamp(0.8rem, 4vw, 1.25rem); /* Fluid typography for links */
         }
+
         .links a:hover, .links a:focus {
             background-color: #835834;
             color: white;
         }
+
         .contract-box {
             width: 100%;
             padding: 5px;
             margin: 10px 0;
             border: 2px solid #835834;
             border-radius: 5px;
-            font-size: 0.8em; /* Smaller text for better fit */
+            font-size: clamp(0.6rem, 3vw, 0.8rem); /* Fluid typography for small text */
             display: flex;
             align-items: center;
         }
+
         .contract-box input {
             flex-grow: 1;
             border: none;
             outline: none;
             font-family: 'Comic Sans MS', cursive;
         }
+
         .contract-box button {
             background-color: #835834;
             color: white;
@@ -75,24 +89,32 @@
             cursor: pointer;
             margin-left: 5px;
         }
+
         .picture-boxes {
-            flex-direction: column; /* Stack images vertically on mobile */
+            display: flex;
+            flex-direction: column; /* Default for mobile */
         }
+
         .picture-box {
             width: 100%;
             margin-bottom: 10px;
-            border: 2px solid #835834; /* Reduced border for smaller screens */
+            border: 2px solid #835834;
             border-radius: 5px;
         }
+
         .picture-box img {
             width: 100%;
             height: auto;
             border-radius: 5px;
         }
+
         .funny-text {
-            font-size: 1em; /* Relative size */
+            font-size: clamp(0.8rem, 4vw, 1.375rem); /* Fluid typography */
             padding: 5px;
             margin-top: 10px;
+            background-color: hwb(60 19% 80%);
+            color: white;
+            border-radius: 10px;
         }
 
         /* Media query for larger screens */
@@ -101,20 +123,20 @@
                 padding: 20px;
             }
             .picture-boxes {
-                flex-direction: row; /* Back to horizontal layout on larger screens */
+                flex-direction: row;
             }
             .picture-box {
                 width: 45%;
             }
             h1 {
-                font-size: 2.5em;
+                font-size: 2.5rem; /* Fixed size for larger screens */
             }
             .links a {
-                font-size: 1.25em;
+                font-size: 1.25rem;
                 margin: 10px 100px;
             }
             .funny-text {
-                font-size: 1.375em;
+                font-size: 1.375rem;
             }
         }
     </style>
