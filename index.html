@@ -92,11 +92,14 @@
 
         .picture-boxes {
             display: flex;
-            flex-direction: column; /* Default for mobile */
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px; /* Space between boxes on mobile */
         }
 
         .picture-box {
-            width: 100%;
+            width: calc(100% - 20px); /* Full width on mobile minus some margin */
+            max-width: 400px; /* Max width for larger screens */
             margin-bottom: 10px;
             border: 2px solid #835834;
             border-radius: 5px;
@@ -105,7 +108,15 @@
         .picture-box img {
             width: 100%;
             height: auto;
-            border-radius: 5px;
+            border-radius: 5px 5px 0 0; /* Rounded corners only at top */
+        }
+
+        .picture-box .description {
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for text visibility */
+            border-top: none; /* No top border since image provides it */
+            border-radius: 0 0 5px 5px; /* Rounded corners at bottom */
+            font-size: 14px; /* Smaller text size for descriptions */
         }
 
         .funny-text {
@@ -126,7 +137,7 @@
                 flex-direction: row;
             }
             .picture-box {
-                width: 45%;
+                width: calc(50% - 30px); /* Two columns with some gap */
             }
             h1 {
                 font-size: 2.5rem; /* Fixed size for larger screens */
@@ -157,9 +168,15 @@
         <div class="picture-boxes">
             <div class="picture-box">
                 <img src="Einstein.jpg" alt="Einstein">
+                <div class="description">
+                    Dr. Albert Einstein - The mastermind behind the theory of relativity, now applying his genius to the study of flatulence.
+                </div>
             </div>
             <div class="picture-box">
                 <img src="Oppenheimer.jpg" alt="Fart Professor 2">
+                <div class="description">
+                    Dr. J. Robert Oppenheimer - Known for his role in the Manhattan Project, he now explores the complex dynamics of gas emissions.
+                </div>
             </div>
         </div>
         
