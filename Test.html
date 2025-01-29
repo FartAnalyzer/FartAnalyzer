@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fart Analyzer Memecoin</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Allgemeine Stile */
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5dc; /* Hellbrauner Hintergrund */
+      color: #4b3621; /* Dunkelbraune Schrift */
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 40px 20px;
+      background-color: #d2b48c; /* Hellbrauner Header */
+      border-bottom: 5px solid #8b7355;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #4b3621;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #6b4423;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #8b7355;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      font-size: 1rem;
+      color: #4b3621;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .profile-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .profile {
+      text-align: center;
+    }
+
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #8b7355;
+      object-fit: cover;
+    }
+
+    .profile h3 {
+      font-size: 1.5rem;
+      margin: 15px 0 5px;
+      color: #6b4423;
+    }
+
+    .profile p {
+      font-size: 1rem;
+      color: #4b3621;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .content-grid .left-section,
+    .content-grid .right-section {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .content-grid ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .content-grid ul li {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #4b3621;
+    }
+
+    .content-grid ul li::before {
+      content: "🚀";
+      margin-right: 10px;
+    }
+
+    .randomizer {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 40px auto;
+      max-width: 600px;
+    }
+
+    .randomizer button {
+      padding: 10px 20px;
+      background-color: #8b7355;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .randomizer button:hover {
+      background-color: #6b4423;
+    }
+
+    .randomizer p {
+      font-size: 1.1rem;
+      margin-top: 15px;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .social-buttons a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #8b7355;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .social-buttons a:hover {
+      background-color: #6b4423;
+    }
+
+    .contract-bar {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 20px auto;
+      max-width: 400px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contract-bar input {
+      flex: 1;
+      border: none;
+      background: none;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-size: 0.9rem;
+      color: #4b3621;
+      outline: none;
+    }
+
+    .contract-bar button {
+      padding: 5px 10px;
+      background-color: #8b7355;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .contract-bar button:hover {
+      background-color: #6b4423;
+    }
+
+    footer {
+      padding: 20px;
+      background-color: #8b7355;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fart Analyzer 🚀💨</h1>
+    <p>The Memecoin that turns celebrity farts into hilarious texts!</p>
+  </header>
+  <main>
+    <section>
+      <h2>Meet the Fart Scientists</h2>
+      <p>Professor Gasstein and Dr. Poppenheimer are the geniuses behind the Fart Analyzer. Using their cutting-edge technology, they analyze celebrity farts and turn them into hilarious, scientifically accurate texts. 💨🔬</p>
+      <div class="profile-container">
+        <div class="profile">
+          <img src="https://via.placeholder.com/120" alt="Professor Gasstein">
+          <h3>Professor Gasstein</h3>
+          <p>The genius who calculates the science behind every fart.</p>
+        </div>
+        <div class="profile">
+          <img src="https://via.placeholder.com/120" alt="Dr. Poppenheimer">
+          <h3>Dr. Poppenheimer</h3>
+          <p>The mastermind who transforms farts into hilarious stories.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-grid">
+      <div class="left-section">
+        <h2>How Does It Work?</h2>
+        <p>Professor Gasstein and Dr. Poppenheimer use their brilliant skills to:</p>
+        <ul>
+          <li>Collect farts from celebrities</li>
+          <li>Analyze them scientifically</li>
+          <li>Turn them into funny and creative texts</li>
+        </ul>
+        <p>Every fart is transformed into a unique memecoin that you can collect and trade!</p>
+      </div>
+      <div class="right-section">
+        <h2>Roadmap</h2>
+        <ul>
+          <li>Pumpfun Bonding</li>
+          <li>Dex Update</li>
+          <li>Marketing</li>
+          <li>Growing Community</li>
+          <li>Deploy X Agent</li>
+          <li>CEX Listing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="randomizer">
+      <button onclick="generateFart()">Analyze a Random Fart 💨</button>
+      <p id="fartResult"></p>
+    </div>
+  </main>
+
+  <section>
+    <h2>Join the Community!</h2>
+    <div class="social-buttons">
+      <a href="https://twitter.com" target="_blank">X (Twitter)</a>
+      <a href="https://telegram.org" target="_blank">Telegram</a>
+      <a href="https://dexscreener.com" target="_blank">DexScreener</a>
+    </div>
+    <div class="contract-bar">
+      <input type="text" id="contractAddress" value="0x1234567890abcdef1234567890abcdef12345678" readonly>
+      <button onclick="copyContract()">Copy</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 Fart Analyzer. All rights reserved. 💨</p>
+  </footer>
+
+  <script>
+    // JavaScript für den Randomizer
+    const celebrities = [
+  // Tech
+  { name: "Elon Musk", theme: "tech" },
+  { name: "Bill Gates", theme: "tech" },
+  { name: "Mark Zuckerberg", theme: "tech" },
+  { name: "Jeff Bezos", theme: "tech" },
+  { name: "Sundar Pichai", theme: "tech" },
+  { name: "Tim Cook", theme: "tech" },
+
+  // Music
+  { name: "Taylor Swift", theme: "music" },
+  { name: "Beyoncé", theme: "music" },
+  { name: "Kanye West", theme: "music" },
+  { name: "Billie Eilish", theme: "music" },
+  { name: "Drake", theme: "music" },
+  { name: "Adele", theme: "music" },
+
+  // Action
+  { name: "Dwayne 'The Rock' Johnson", theme: "action" },
+  { name: "Jason Statham", theme: "action" },
+  { name: "Tom Cruise", theme: "action" },
+  { name: "Vin Diesel", theme: "action" },
+  { name: "Scarlett Johansson", theme: "action" },
+  { name: "Keanu Reeves", theme: "action" },
+
+  // Drama
+  { name: "Kim Kardashian", theme: "drama" },
+  { name: "Kylie Jenner", theme: "drama" },
+  { name: "Zendaya", theme: "drama" },
+  { name: "Meryl Streep", theme: "drama" },
+  { name: "Jennifer Lawrence", theme: "drama" },
+  { name: "Ryan Reynolds", theme: "drama" },
+
+  // Movies
+  { name: "Leonardo DiCaprio", theme: "movies" },
+  { name: "Tom Hanks", theme: "movies" },
+  { name: "Brad Pitt", theme: "movies" },
+  { name: "Angelina Jolie", theme: "movies" },
+  { name: "Robert Downey Jr.", theme: "movies" },
+  { name: "Margot Robbie", theme: "movies" },
+
+  // Inspiration
+  { name: "Oprah Winfrey", theme: "inspiration" },
+  { name: "Michelle Obama", theme: "inspiration" },
+  { name: "Malala Yousafzai", theme: "inspiration" },
+  { name: "Tony Robbins", theme: "inspiration" },
+  { name: "Greta Thunberg", theme: "inspiration" },
+  { name: "Nelson Mandela", theme: "inspiration" },
+
+  // Serial Killer
+  { name: "Hannibal Lecter", theme: "serial killer" },
+  { name: "Ted Bundy", theme: "serial killer" },
+  { name: "Jeffrey Dahmer", theme: "serial killer" },
+  { name: "John Wayne Gacy", theme: "serial killer" },
+  { name: "Jack the Ripper", theme: "serial killer" },
+  { name: "Aileen Wuornos", theme: "serial killer" },
+
+  // Politician
+  { name: "Vladimir Putin", theme: "politician" },
+  { name: "Joe Biden", theme: "politician" },
+  { name: "Barack Obama", theme: "politician" },
+  { name: "Angela Merkel", theme: "politician" },
+  { name: "Justin Trudeau", theme: "politician" },
+  { name: "Donald Trump", theme: "politician" }
+];
+
+    const fartTexts = {
+  tech: [
+    "This fart has the power of 1.21 gigawatts! Perfect for a trip to the year 2050.",
+    "A fart so advanced, it could power a Tesla for a week.",
+    "This fart smells like innovation and a hint of burnt silicon.",
+    "A fart so futuristic, it could be the next big thing in AI.",
+    "This fart is blockchain-powered and 100% decentralized."
+  ],
+  music: [
+    "A fart so smooth, it could be the bassline for a hit song.",
+    "This fart has the rhythm of a drum solo and the melody of a violin.",
+    "A fart so catchy, it could top the Billboard charts.",
+    "This fart is so harmonious, it could be part of a symphony.",
+    "A fart so loud, it could replace the bass drop at a rave."
+  ],
+  action: [
+    "A fart so powerful, it could knock out a WWE wrestler.",
+    "This fart smells like victory and a hint of protein powder.",
+    "A fart so explosive, it could be used in an action movie.",
+    "This fart is so intense, it could be the climax of a Marvel movie.",
+    "A fart so fast, it could outrun a speeding bullet."
+  ],
+  drama: [
+    "A fart so dramatic, it deserves its own reality show.",
+    "This fart smells like roses... if roses were made of drama.",
+    "A fart so intense, it could win an Oscar.",
+    "This fart is so theatrical, it could star in a Shakespeare play.",
+    "A fart so emotional, it could make you cry."
+  ],
+  movies: [
+    "A fart so cinematic, it could be the climax of a blockbuster.",
+    "This fart smells like popcorn and a hint of Hollywood magic.",
+    "A fart so legendary, it could be directed by Spielberg.",
+    "This fart is so epic, it could be the plot twist of the century.",
+    "A fart so iconic, it could be the next meme sensation."
+  ],
+  inspiration: [
+    "A fart so inspiring, it could motivate a nation.",
+    "This fart smells like success and a hint of determination.",
+    "A fart so powerful, it could change the world.",
+    "This fart is so uplifting, it could be a self-help book.",
+    "A fart so motivational, it could make you run a marathon."
+  ],
+  "serial killer": [
+    "A fart so sinister, it could be the calling card of a serial killer.",
+    "This fart smells like danger and a hint of mystery.",
+    "A fart so chilling, it could be the soundtrack of a horror movie.",
+    "This fart is so creepy, it could scare even the bravest detective.",
+    "A fart so deadly, it could be used as a weapon."
+  ],
+  politician: [
+    "A fart so persuasive, it could pass any law.",
+    "This fart smells like promises and a hint of corruption.",
+    "A fart so diplomatic, it could solve world peace.",
+    "This fart is so strategic, it could win an election.",
+    "A fart so powerful, it could be the next political scandal."
+  ],
+  default: [
+    "This fart smells like mystery and a hint of curiosity.",
+    "A fart so unique, it defies all scientific explanation.",
+    "This fart could be the start of a new era.",
+    "A fart so mysterious, it could be from another dimension.",
+    "This fart is so strange, it could be the subject of a conspiracy theory."
+      ]
+    };
+
+    function generateFart() {
+      const randomCelebrity = celebrities[Math.floor(Math.random() * celebrities.length)];
+      const theme = randomCelebrity.theme || "default";
+      const randomFartText = fartTexts[theme][Math.floor(Math.random() * fartTexts[theme].length)];
+      const result = `Celebrity: ${randomCelebrity.name}<br>Fart Analysis: ${randomFartText}`;
+      document.getElementById("fartResult").innerHTML = result;
+    }
+
+    // JavaScript für den Contract-Balken
+    function copyContract() {
+      const contractInput = document.getElementById("contractAddress");
+      contractInput.select();
+      document.execCommand("copy");
+      alert("Contract address copied to clipboard!");
+    }
+  </script>
+</body>
+</html>
