@@ -5,36 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fart Analyzer Memecoin</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"> <!-- Nunito von Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Allgemeine Stile */
     body {
-      font-family: 'Nunito', sans-serif; /* Comic Sans MS durch Nunito ersetzt */
+      font-family: 'Nunito', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5dc; /* Hellbrauner Hintergrund */
-      color: #4b3621; /* Dunkelbraune Schrift */
+      background-color: #f5f5dc;
+      color: #4b3621;
       text-align: center;
       line-height: 1.6;
     }
-/* Füge den neuen CSS-Code hier ein */
-#fartResult {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Zentriert den Inhalt horizontal */
-  text-align: center; /* Zentriert den Text */
-}
-#celebrityImage {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 3px solid #8b7355;
-    object-fit: cover;
-    margin-bottom: 10px;
-  }
+
     header {
       padding: 40px 20px;
-      background-color: #d2b48c; /* Hellbrauner Header */
+      background-color: #d2b48c;
       border-bottom: 5px solid #8b7355;
     }
 
@@ -43,17 +29,20 @@
       margin: 0;
       color: #4b3621;
     }
+
     header p {
       font-size: 1.2rem;
       color: #6b4423;
       margin: 10px 0 0;
     }
+
     header p.quote {
       font-style: italic;
       font-size: 1rem;
       color: #4b3621;
       margin-top: 5px;
     }
+
     main {
       padding: 20px;
       max-width: 1200px;
@@ -164,6 +153,7 @@
       font-size: 1.1rem;
       margin-top: 15px;
     }
+
     .social-buttons {
       display: flex;
       justify-content: center;
@@ -201,7 +191,7 @@
       flex: 1;
       border: none;
       background: none;
-      font-family: 'Nunito', sans-serif; /* Comic Sans MS durch Nunito ersetzt */
+      font-family: 'Nunito', sans-serif;
       font-size: 0.9rem;
       color: #4b3621;
       outline: none;
@@ -254,23 +244,17 @@
   <main>
     <section>
       <h2>Meet the Fart Scientists</h2>
-      <p>The brilliant minds behind the Fart Analyzer.
-Using their groundbreaking Flatulence Quantum Theory (FQT), they decode the molecular secrets of celebrity farts and transform them into accurate scientific analyses.
-"We don’t just smell farts—we understand them." 💨🔬</p>
+      <p>The brilliant minds behind the Fart Analyzer. Using their groundbreaking Flatulence Quantum Theory (FQT), they decode the molecular secrets of celebrity farts and transform them into accurate scientific analyses. "We don’t just smell farts—we understand them." 💨🔬</p>
       <div class="profile-container">
         <div class="profile">
           <img src="Einstein.jpg" alt="Professor Gasstein">
           <h3>Professor Einstein</h3>
-          <p>The mastermind of molecular flatulence.
-              Using his revolutionary Fart Quantum Algorithm (FQA), he calculates the precise science behind every fart, from velocity to aroma intensity.
-              "If you can’t measure it, you can’t laugh at it." 💨📊</p>
+          <p>The mastermind of molecular flatulence. Using his revolutionary Fart Quantum Algorithm (FQA), he calculates the precise science behind every fart, from velocity to aroma intensity. "If you can’t measure it, you can’t laugh at it." 💨📊</p>
         </div>
         <div class="profile">
           <img src="Oppenheimer.jpg" alt="Dr. Poppenheimer">
           <h3>Dr. Oppenheimer</h3>
-          <p>The visionary behind the Flatulence Energy Conversion (FEC) theory.
-             He transforms the raw power of celebrity farts into hilariously accurate scientific narratives.
-            "Every fart tells a story—we just write it down." 💨📖</p>
+          <p>The visionary behind the Flatulence Energy Conversion (FEC) theory. He transforms the raw power of celebrity farts into hilariously accurate scientific narratives. "Every fart tells a story—we just write it down." 💨📖</p>
         </div>
       </div>
     </section>
@@ -298,15 +282,38 @@ Using their groundbreaking Flatulence Quantum Theory (FQT), they decode the mole
       </div>
     </div>
 
+    <!-- Neue Boxen für Community-Driven und Tokenomics -->
+    <div class="content-grid">
+      <div class="left-section">
+        <h2>Community-Driven</h2>
+        <p>Fart Analyzer is powered by its vibrant community. Together, we:</p>
+        <ul>
+          <li>Vote on new features and improvements</li>
+          <li>Share hilarious fart analyses</li>
+          <li>Build a decentralized future, one fart at a time</li>
+        </ul>
+      </div>
+      <div class="right-section">
+        <h2>Tokenomics</h2>
+        <p>Our tokenomics are designed to reward the community:</p>
+        <ul>
+          <li>Total Supply: 1,000,000,000 </li>
+          <li>1% Marketing / Partnerships</li>
+          <li>1% Community Events / Raffle </li>
+          <li>3% for liquidity and partnerships</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="randomizer">
       <button onclick="generateFart()">Analyze a Random Fart 💨</button>
       <p id="fartResult"></p>
     </div>
     <div id="fartResult">
-  <img id="celebrityImage" src="" alt="Celebrity Image" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px; display: none;">
-  <p id="celebrityName"></p>
-  <p id="fartAnalysis"></p>
-</div>
+      <img id="celebrityImage" src="" alt="Celebrity Image" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px; display: none;">
+      <p id="celebrityName"></p>
+      <p id="fartAnalysis"></p>
+    </div>
   </main>
 
   <section>
@@ -327,6 +334,43 @@ Using their groundbreaking Flatulence Quantum Theory (FQT), they decode the mole
   </footer>
 
   <script>
+    const celebrities = [
+      { name: "Elon Musk", theme: "tech", image: "https://example.com/elon-musk.jpg" },
+      { name: "Taylor Swift", theme: "music", image: "https://example.com/taylor-swift.jpg" },
+      // ... (Rest der Liste)
+    ];
+
+    const fartTexts = {
+      tech: [
+        "This fart has the power of 1.21 gigawatts! Perfect for a trip to the year 2050.",
+        "A fart so advanced, it could power a Tesla for a week.",
+        // ... (Rest der Texte)
+      ],
+      // ... (Rest der Themen)
+    };
+
+    function generateFart() {
+      const randomCelebrity = celebrities[Math.floor(Math.random() * celebrities.length)];
+      const theme = randomCelebrity.theme || "default";
+      const randomFartText = fartTexts[theme][Math.floor(Math.random() * fartTexts[theme].length)];
+
+      const celebrityImage = document.getElementById("celebrityImage");
+      const celebrityName = document.getElementById("celebrityName");
+      const fartAnalysis = document.getElementById("fartAnalysis");
+
+      celebrityImage.src = randomCelebrity.image;
+      celebrityImage.style.display = "block";
+      celebrityName.textContent = `Celebrity: ${randomCelebrity.name}`;
+      fartAnalysis.textContent = `Fart Analysis: ${randomFartText}`;
+    }
+
+    function copyContract() {
+      const contractInput = document.getElementById("contractAddress");
+      contractInput.select();
+      document.execCommand("copy");
+      alert("Contract address copied to clipboard!");
+    }
+  </script>
     // JavaScript für den Randomizer
 const celebrities = [
   // Tech
