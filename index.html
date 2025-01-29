@@ -279,6 +279,11 @@
       <button onclick="generateFart()">Analyze a Random Fart 💨</button>
       <p id="fartResult"></p>
     </div>
+    <div id="fartResult">
+  <img id="celebrityImage" src="" alt="Celebrity Image" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px; display: none;">
+  <p id="celebrityName"></p>
+  <p id="fartAnalysis"></p>
+</div>
   </main>
 
   <section>
@@ -300,70 +305,70 @@
 
   <script>
     // JavaScript für den Randomizer
-    const celebrities = [
+const celebrities = [
   // Tech
-  { name: "Elon Musk", theme: "tech" },
-  { name: "Bill Gates", theme: "tech" },
-  { name: "Mark Zuckerberg", theme: "tech" },
-  { name: "Jeff Bezos", theme: "tech" },
-  { name: "Sundar Pichai", theme: "tech" },
-  { name: "Tim Cook", theme: "tech" },
+  { name: "Elon Musk", theme: "tech", image: "https://example.com/elon-musk.jpg" },
+  { name: "Bill Gates", theme: "tech", image: "https://example.com/bill-gates.jpg" },
+  { name: "Mark Zuckerberg", theme: "tech", image: "https://example.com/mark-zuckerberg.jpg" },
+  { name: "Jeff Bezos", theme: "tech", image: "https://example.com/jeff-bezos.jpg" },
+  { name: "Sundar Pichai", theme: "tech", image: "https://example.com/sundar-pichai.jpg" },
+  { name: "Tim Cook", theme: "tech", image: "https://example.com/tim-cook.jpg" },
 
   // Music
-  { name: "Taylor Swift", theme: "music" },
-  { name: "Beyoncé", theme: "music" },
-  { name: "Kanye West", theme: "music" },
-  { name: "Billie Eilish", theme: "music" },
-  { name: "Drake", theme: "music" },
-  { name: "Adele", theme: "music" },
+  { name: "Taylor Swift", theme: "music", image: "https://example.com/taylor-swift.jpg" },
+  { name: "Beyoncé", theme: "music", image: "https://example.com/beyonce.jpg" },
+  { name: "Kanye West", theme: "music", image: "https://example.com/kanye-west.jpg" },
+  { name: "Billie Eilish", theme: "music", image: "https://example.com/billie-eilish.jpg" },
+  { name: "Drake", theme: "music", image: "https://example.com/drake.jpg" },
+  { name: "Adele", theme: "music", image: "https://example.com/adele.jpg" },
 
   // Action
-  { name: "Dwayne 'The Rock' Johnson", theme: "action" },
-  { name: "Jason Statham", theme: "action" },
-  { name: "Tom Cruise", theme: "action" },
-  { name: "Vin Diesel", theme: "action" },
-  { name: "Scarlett Johansson", theme: "action" },
-  { name: "Keanu Reeves", theme: "action" },
+  { name: "Dwayne 'The Rock' Johnson", theme: "action", image: "https://example.com/the-rock.jpg" },
+  { name: "Jason Statham", theme: "action", image: "https://example.com/jason-statham.jpg" },
+  { name: "Tom Cruise", theme: "action", image: "https://example.com/tom-cruise.jpg" },
+  { name: "Vin Diesel", theme: "action", image: "https://example.com/vin-diesel.jpg" },
+  { name: "Scarlett Johansson", theme: "action", image: "https://example.com/scarlett-johansson.jpg" },
+  { name: "Keanu Reeves", theme: "action", image: "https://example.com/keanu-reeves.jpg" },
 
   // Drama
-  { name: "Kim Kardashian", theme: "drama" },
-  { name: "Kylie Jenner", theme: "drama" },
-  { name: "Zendaya", theme: "drama" },
-  { name: "Meryl Streep", theme: "drama" },
-  { name: "Jennifer Lawrence", theme: "drama" },
-  { name: "Ryan Reynolds", theme: "drama" },
+  { name: "Kim Kardashian", theme: "drama", image: "https://example.com/kim-kardashian.jpg" },
+  { name: "Kylie Jenner", theme: "drama", image: "https://example.com/kylie-jenner.jpg" },
+  { name: "Zendaya", theme: "drama", image: "https://example.com/zendaya.jpg" },
+  { name: "Meryl Streep", theme: "drama", image: "https://example.com/meryl-streep.jpg" },
+  { name: "Jennifer Lawrence", theme: "drama", image: "https://example.com/jennifer-lawrence.jpg" },
+  { name: "Ryan Reynolds", theme: "drama", image: "https://example.com/ryan-reynolds.jpg" },
 
   // Movies
-  { name: "Leonardo DiCaprio", theme: "movies" },
-  { name: "Tom Hanks", theme: "movies" },
-  { name: "Brad Pitt", theme: "movies" },
-  { name: "Angelina Jolie", theme: "movies" },
-  { name: "Robert Downey Jr.", theme: "movies" },
-  { name: "Margot Robbie", theme: "movies" },
+  { name: "Leonardo DiCaprio", theme: "movies", image: "https://example.com/leonardo-dicaprio.jpg" },
+  { name: "Tom Hanks", theme: "movies", image: "https://example.com/tom-hanks.jpg" },
+  { name: "Brad Pitt", theme: "movies", image: "https://example.com/brad-pitt.jpg" },
+  { name: "Angelina Jolie", theme: "movies", image: "https://example.com/angelina-jolie.jpg" },
+  { name: "Robert Downey Jr.", theme: "movies", image: "https://example.com/robert-downey-jr.jpg" },
+  { name: "Margot Robbie", theme: "movies", image: "https://example.com/margot-robbie.jpg" },
 
   // Inspiration
-  { name: "Oprah Winfrey", theme: "inspiration" },
-  { name: "Michelle Obama", theme: "inspiration" },
-  { name: "Malala Yousafzai", theme: "inspiration" },
-  { name: "Tony Robbins", theme: "inspiration" },
-  { name: "Greta Thunberg", theme: "inspiration" },
-  { name: "Nelson Mandela", theme: "inspiration" },
+  { name: "Oprah Winfrey", theme: "inspiration", image: "https://example.com/oprah-winfrey.jpg" },
+  { name: "Michelle Obama", theme: "inspiration", image: "https://example.com/michelle-obama.jpg" },
+  { name: "Malala Yousafzai", theme: "inspiration", image: "https://example.com/malala-yousafzai.jpg" },
+  { name: "Tony Robbins", theme: "inspiration", image: "https://example.com/tony-robbins.jpg" },
+  { name: "Greta Thunberg", theme: "inspiration", image: "https://example.com/greta-thunberg.jpg" },
+  { name: "Nelson Mandela", theme: "inspiration", image: "https://example.com/nelson-mandela.jpg" },
 
   // Serial Killer
-  { name: "Hannibal Lecter", theme: "serial killer" },
-  { name: "Ted Bundy", theme: "serial killer" },
-  { name: "Jeffrey Dahmer", theme: "serial killer" },
-  { name: "John Wayne Gacy", theme: "serial killer" },
-  { name: "Jack the Ripper", theme: "serial killer" },
-  { name: "Aileen Wuornos", theme: "serial killer" },
+  { name: "Hannibal Lecter", theme: "serial killer", image: "https://example.com/hannibal-lecter.jpg" },
+  { name: "Ted Bundy", theme: "serial killer", image: "https://example.com/ted-bundy.jpg" },
+  { name: "Jeffrey Dahmer", theme: "serial killer", image: "https://example.com/jeffrey-dahmer.jpg" },
+  { name: "John Wayne Gacy", theme: "serial killer", image: "https://example.com/john-wayne-gacy.jpg" },
+  { name: "Jack the Ripper", theme: "serial killer", image: "https://example.com/jack-the-ripper.jpg" },
+  { name: "Aileen Wuornos", theme: "serial killer", image: "https://example.com/aileen-wuornos.jpg" },
 
   // Politician
-  { name: "Vladimir Putin", theme: "politician" },
-  { name: "Joe Biden", theme: "politician" },
-  { name: "Barack Obama", theme: "politician" },
-  { name: "Angela Merkel", theme: "politician" },
-  { name: "Justin Trudeau", theme: "politician" },
-  { name: "Donald Trump", theme: "politician" }
+  { name: "Vladimir Putin", theme: "politician", image: "https://example.com/vladimir-putin.jpg" },
+  { name: "Joe Biden", theme: "politician", image: "https://example.com/joe-biden.jpg" },
+  { name: "Barack Obama", theme: "politician", image: "https://example.com/barack-obama.jpg" },
+  { name: "Angela Merkel", theme: "politician", image: "https://example.com/angela-merkel.jpg" },
+  { name: "Justin Trudeau", theme: "politician", image: "https://example.com/justin-trudeau.jpg" },
+  { name: "Donald Trump", theme: "politician", image: "https://example.com/donald-trump.jpg" }
 ];
 
     const fartTexts = {
@@ -432,13 +437,32 @@
       ]
     };
 
-    function generateFart() {
-      const randomCelebrity = celebrities[Math.floor(Math.random() * celebrities.length)];
-      const theme = randomCelebrity.theme || "default";
-      const randomFartText = fartTexts[theme][Math.floor(Math.random() * fartTexts[theme].length)];
-      const result = `Celebrity: ${randomCelebrity.name}<br>Fart Analysis: ${randomFartText}`;
-      document.getElementById("fartResult").innerHTML = result;
-    }
+ function generateFart() {
+  const randomCelebrity = celebrities[Math.floor(Math.random() * celebrities.length)];
+  const theme = randomCelebrity.theme || "default";
+  const randomFartText = fartTexts[theme][Math.floor(Math.random() * fartTexts[theme].length)];
+
+  // Zeige das Bild, den Namen und den Text an
+  const celebrityImage = document.getElementById("celebrityImage");
+  const celebrityName = document.getElementById("celebrityName");
+  const fartAnalysis = document.getElementById("fartAnalysis");
+
+  celebrityImage.src = randomCelebrity.image;
+  celebrityImage.style.display = "block";
+  celebrityName.textContent = `Celebrity: ${randomCelebrity.name}`;
+  fartAnalysis.textContent = `Fart Analysis: ${randomFartText}`;
+}
+
+  // Zeige das Bild, den Namen und den Text an
+  const celebrityImage = document.getElementById("celebrityImage");
+  const celebrityName = document.getElementById("celebrityName");
+  const fartAnalysis = document.getElementById("fartAnalysis");
+
+  celebrityImage.src = randomCelebrity.image;
+  celebrityImage.style.display = "block";
+  celebrityName.textContent = `Celebrity: ${randomCelebrity.name}`;
+  fartAnalysis.textContent = `Fart Analysis: ${randomFartText}`;
+}
 
     // JavaScript für den Contract-Balken
     function copyContract() {
