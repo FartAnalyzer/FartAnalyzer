@@ -381,7 +381,7 @@
     <p>&copy; 2025 Fart Analyzer. All rights reserved. 💨</p>
   </footer>
 
-  <script>
+ <script>
     const celebrities = [
       { name: "Elon Musk", theme: "tech", image: "https://example.com/elon-musk.jpg" },
       { name: "Taylor Swift", theme: "music", image: "https://example.com/taylor-swift.jpg" },
@@ -397,21 +397,28 @@
       // ... (Rest der Themen)
     };
 
-  function generateFart() {
-    const randomCelebrity = celebrities[Math.floor(Math.random() * celebrities.length)];
-    const theme = randomCelebrity.theme || "default";
-    const randomFartText = fartTexts[theme][Math.floor(Math.random() * fartTexts[theme].length)];
+    function generateFart() {
+      const randomCelebrity = celebrities[Math.floor(Math.random() * celebrities.length)];
+      const theme = randomCelebrity.theme || "default";
+      const randomFartText = fartTexts[theme][Math.floor(Math.random() * fartTexts[theme].length)];
 
-    // Zeige das Bild, den Namen und den Text an
-    const celebrityImage = document.getElementById("celebrityImage");
-    const celebrityName = document.getElementById("celebrityName");
-    const fartAnalysis = document.getElementById("fartAnalysis");
+      // Zeige das Bild, den Namen und den Text an
+      const celebrityImage = document.getElementById("celebrityImage");
+      const celebrityName = document.getElementById("celebrityName");
+      const fartAnalysis = document.getElementById("fartAnalysis");
 
-    celebrityImage.src = randomCelebrity.image;
-    celebrityImage.style.display = "block";
-    celebrityName.textContent = `Celebrity: ${randomCelebrity.name}`;
-    fartAnalysis.textContent = `Fart Analysis: ${randomFartText}`;
-  }
+      celebrityImage.src = randomCelebrity.image;
+      celebrityImage.style.display = "block";
+      celebrityName.textContent = `Celebrity: ${randomCelebrity.name}`;
+      fartAnalysis.textContent = `Fart Analysis: ${randomFartText}`;
+    }
+
+    // Randomizer alle 30 Sekunden auslösen
+    setInterval(generateFart, 30000); // 30000 Millisekunden = 30 Sekunden
+
+    // Manueller Button-Trigger
+    document.getElementById("randomizerButton").addEventListener("click", generateFart);
+
     function copyContract() {
       const contractInput = document.getElementById("contractAddress");
       contractInput.select();
@@ -423,6 +430,8 @@
       const section = document.getElementById(sectionId);
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        console.error(`Abschnitt mit der ID "${sectionId}" nicht gefunden.`);
       }
     }
   </script>
