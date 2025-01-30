@@ -315,15 +315,16 @@
           <li>Turn them into funny and creative texts</li>
         </ul>
       </div>
-      <div class="right-section">
-        <h2>Roadmap</h2>
-        <ul>
-          <li>Pumpfun Bonding</li>
-          <li>Dex Update</li>
-          <li>Marketing</li>
-          <li>Growing Community</li>
-          <li>Deploy X Agent</li>
-          <li>CEX Listing</li>
+      <div class="content-grid" id="roadmap">
+        <div class="right-section">
+          <h2>Roadmap</h2>
+          <ul>
+            <li>Pumpfun Bonding</li>
+            <li>Dex Update</li>
+            <li>Marketing</li>
+            <li>Growing Community</li>
+            <li>Deploy X Agent</li>
+            <li>CEX Listing</li>
         </ul>
       </div>
     </div>
@@ -339,14 +340,15 @@
           <li>Build a decentralized future, one fart at a time</li>
         </ul>
       </div>
-      <div class="right-section">
-        <h2>Tokenomics</h2>
-        <p>Our tokenomics are designed to reward the community:</p>
-        <ul>
-          <li>Total Supply: 1,000,000,000 FART</li>
-          <li>50% allocated to the community</li>
-          <li>20% for development and marketing</li>
-          <li>30% for liquidity and partnerships</li>
+      <div class="content-grid" id="tokenomics">
+        <div class="right-section">
+          <h2>Tokenomics</h2>
+          <p>Our tokenomics are designed to reward the community:</p>
+          <ul>
+            <li>Total Supply: 1,000,000,000 FART</li>
+            <li>50% allocated to the community</li>
+            <li>20% for development and marketing</li>
+            <li>30% for liquidity and partnerships</li>
         </ul>
       </div>
     </div>
@@ -424,7 +426,7 @@
       }
     }
   </script>
-  
+
   <script>
     const celebrities = [
       { name: "Elon Musk", theme: "tech", image: "https://example.com/elon-musk.jpg" },
@@ -463,6 +465,14 @@
       alert("Contract address copied to clipboard!");
     }
 
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        console.error(`Abschnitt mit der ID "${sectionId}" nicht gefunden.`);
+      }
+    }
     // JavaScript für den Randomizer
 const celebrities = [
   // Tech
@@ -631,5 +641,6 @@ const celebrities = [
       alert("Contract address copied to clipboard!");
     }
   </script>
+  
 </body>
 </html>
