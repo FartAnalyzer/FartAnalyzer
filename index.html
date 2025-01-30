@@ -325,7 +325,8 @@
             <li>Growing Community</li>
             <li>Deploy X Agent</li>
             <li>CEX Listing</li>
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -346,21 +347,21 @@
           <p>Our tokenomics are designed to reward the community:</p>
           <ul>
             <li>Total Supply: 1,000,000,000 FART</li>
-            <li> 1% Community Events / Raffle </li>
-            <li> 1% Marketing </li>
-            <li> 3% Team Wallet </li>
-        </ul>
+            <li>1% Community Events / Raffle</li>
+            <li>1% Marketing</li>
+            <li>3% Team Wallet</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <div class="randomizer" id="randomizer">
-      <button onclick="generateFart()">Analyze a Random Fart 💨</button>
-      <p id="fartResult"></p>
-    </div>
-    <div id="fartResult">
-      <img id="celebrityImage" src="" alt="Celebrity Image" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px; display: none;">
-      <p id="celebrityName"></p>
-      <p id="fartAnalysis"></p>
+      <button id="randomizerButton">Analyze a Random Fart 💨</button>
+      <div id="fartResult">
+        <img id="celebrityImage" src="" alt="Celebrity Image" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px; display: none;">
+        <p id="celebrityName"></p>
+        <p id="fartAnalysis"></p>
+      </div>
     </div>
   </main>
 
@@ -378,23 +379,32 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Fart Analyzer. All rights reserved. 💨</p>
+    <p>© 2025 Fart Analyzer. All rights reserved. 💨</p>
   </footer>
 
- <script>
+  <script>
+    // Define celebrities and their corresponding fart texts
     const celebrities = [
-      { name: "Elon Musk", theme: "tech", image: "https://example.com/elon-musk.jpg" },
+      { name: "Elon Musk", theme: "tech", image: "Musk.jpg" },
       { name: "Taylor Swift", theme: "music", image: "https://example.com/taylor-swift.jpg" },
-      // ... (Rest der Liste)
+      { name: "Dwayne 'The Rock' Johnson", theme: "action", image: "https://example.com/the-rock.jpg" },
+      { name: "Kim Kardashian", theme: "drama", image: "https://example.com/kim-kardashian.jpg" },
+      { name: "Leonardo DiCaprio", theme: "movies", image: "https://example.com/leonardo-dicaprio.jpg" },
+      { name: "Oprah Winfrey", theme: "inspiration", image: "https://example.com/oprah-winfrey.jpg" },
+      { name: "Hannibal Lecter", theme: "serial killer", image: "https://example.com/hannibal-lecter.jpg" },
+      { name: "Vladimir Putin", theme: "politician", image: "https://example.com/vladimir-putin.jpg" }
     ];
 
     const fartTexts = {
-      tech: [
-        "This fart has the power of 1.21 gigawatts! Perfect for a trip to the year 2050.",
-        "A fart so advanced, it could power a Tesla for a week.",
-        // ... (Rest der Texte)
-      ],
-      // ... (Rest der Themen)
+      tech: ["This fart has the power of 1.21 gigawatts! Perfect for a trip to the year 2050."],
+      music: ["A fart so smooth, it could be the bassline for a hit song."],
+      action: ["A fart so powerful, it could knock out a WWE wrestler."],
+      drama: ["A fart so dramatic, it deserves its own reality show."],
+      movies: ["A fart so cinematic, it could be the climax of a blockbuster."],
+      inspiration: ["A fart so inspiring, it could motivate a nation."],
+      "serial killer": ["A fart so sinister, it could be the calling card of a serial killer."],
+      politician: ["A fart so persuasive, it could pass any law."],
+      default: ["This fart smells like mystery and a hint of curiosity."]
     };
 
     function generateFart() {
@@ -402,7 +412,7 @@
       const theme = randomCelebrity.theme || "default";
       const randomFartText = fartTexts[theme][Math.floor(Math.random() * fartTexts[theme].length)];
 
-      // Zeige das Bild, den Namen und den Text an
+      // Show the image, name, and text
       const celebrityImage = document.getElementById("celebrityImage");
       const celebrityName = document.getElementById("celebrityName");
       const fartAnalysis = document.getElementById("fartAnalysis");
@@ -413,10 +423,10 @@
       fartAnalysis.textContent = `Fart Analysis: ${randomFartText}`;
     }
 
-    // Randomizer alle 30 Sekunden auslösen
-    setInterval(generateFart, 30000); // 30000 Millisekunden = 30 Sekunden
+    // Trigger randomizer every 10 seconds
+    setInterval(generateFart, 10000); // 10000 milliseconds = 10 seconds
 
-    // Manueller Button-Trigger
+    // Manual button trigger
     document.getElementById("randomizerButton").addEventListener("click", generateFart);
 
     function copyContract() {
@@ -433,210 +443,6 @@
       } else {
         console.error(`Abschnitt mit der ID "${sectionId}" nicht gefunden.`);
       }
-    }
-  </script>
-
-  <script>
-    const celebrities = [
-      { name: "Elon Musk", theme: "tech", image: "https://example.com/elon-musk.jpg" },
-      { name: "Taylor Swift", theme: "music", image: "https://example.com/taylor-swift.jpg" },
-      // ... (Rest der Liste)
-    ];
-
-    const fartTexts = {
-      tech: [
-        "This fart has the power of 1.21 gigawatts! Perfect for a trip to the year 2050.",
-        "A fart so advanced, it could power a Tesla for a week.",
-        // ... (Rest der Texte)
-      ],
-      // ... (Rest der Themen)
-    };
-
-    function generateFart() {
-      const randomCelebrity = celebrities[Math.floor(Math.random() * celebrities.length)];
-      const theme = randomCelebrity.theme || "default";
-      const randomFartText = fartTexts[theme][Math.floor(Math.random() * fartTexts[theme].length)];
-
-      const celebrityImage = document.getElementById("celebrityImage");
-      const celebrityName = document.getElementById("celebrityName");
-      const fartAnalysis = document.getElementById("fartAnalysis");
-
-      celebrityImage.src = randomCelebrity.image;
-      celebrityImage.style.display = "block";
-      celebrityName.textContent = `Celebrity: ${randomCelebrity.name}`;
-      fartAnalysis.textContent = `Fart Analysis: ${randomFartText}`;
-    }
-
-    function copyContract() {
-      const contractInput = document.getElementById("contractAddress");
-      contractInput.select();
-      document.execCommand("copy");
-      alert("Contract address copied to clipboard!");
-    }
-
-    function scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        console.error(`Abschnitt mit der ID "${sectionId}" nicht gefunden.`);
-      }
-    }
-    // JavaScript für den Randomizer
- const celebrities = [
-    // Tech
-    { name: "Elon Musk", theme: "tech", image: "Musk.jpg" },
-    { name: "Bill Gates", theme: "tech", image: "Gates.jpg" },
-    { name: "Mark Zuckerberg", theme: "tech", image: "Zuckerberg.jpg" },
-    { name: "Jeff Bezos", theme: "tech", image: "Bezos.jpg" },
-    { name: "Sundar Pichai", theme: "tech", image: "Sundar.jpg" },
-    { name: "Tim Cook", theme: "tech", image: "Cook.jpg" },
-
-    // Music
-    { name: "Taylor Swift", theme: "music", image: "https://example.com/taylor-swift.jpg" },
-    { name: "Beyoncé", theme: "music", image: "https://example.com/beyonce.jpg" },
-    { name: "Kanye West", theme: "music", image: "https://example.com/kanye-west.jpg" },
-    { name: "Billie Eilish", theme: "music", image: "https://example.com/billie-eilish.jpg" },
-    { name: "Drake", theme: "music", image: "https://example.com/drake.jpg" },
-    { name: "Adele", theme: "music", image: "https://example.com/adele.jpg" },
-
-    // Action
-    { name: "Dwayne 'The Rock' Johnson", theme: "action", image: "https://example.com/the-rock.jpg" },
-    { name: "Jason Statham", theme: "action", image: "https://example.com/jason-statham.jpg" },
-    { name: "Tom Cruise", theme: "action", image: "https://example.com/tom-cruise.jpg" },
-    { name: "Vin Diesel", theme: "action", image: "https://example.com/vin-diesel.jpg" },
-    { name: "Scarlett Johansson", theme: "action", image: "https://example.com/scarlett-johansson.jpg" },
-    { name: "Keanu Reeves", theme: "action", image: "https://example.com/keanu-reeves.jpg" },
-
-    // Drama
-    { name: "Kim Kardashian", theme: "drama", image: "https://example.com/kim-kardashian.jpg" },
-    { name: "Kylie Jenner", theme: "drama", image: "https://example.com/kylie-jenner.jpg" },
-    { name: "Zendaya", theme: "drama", image: "https://example.com/zendaya.jpg" },
-    { name: "Meryl Streep", theme: "drama", image: "https://example.com/meryl-streep.jpg" },
-    { name: "Jennifer Lawrence", theme: "drama", image: "https://example.com/jennifer-lawrence.jpg" },
-    { name: "Ryan Reynolds", theme: "drama", image: "https://example.com/ryan-reynolds.jpg" },
-
-    // Movies
-    { name: "Leonardo DiCaprio", theme: "movies", image: "https://example.com/leonardo-dicaprio.jpg" },
-    { name: "Tom Hanks", theme: "movies", image: "https://example.com/tom-hanks.jpg" },
-    { name: "Brad Pitt", theme: "movies", image: "https://example.com/brad-pitt.jpg" },
-    { name: "Angelina Jolie", theme: "movies", image: "https://example.com/angelina-jolie.jpg" },
-    { name: "Robert Downey Jr.", theme: "movies", image: "https://example.com/robert-downey-jr.jpg" },
-    { name: "Margot Robbie", theme: "movies", image: "https://example.com/margot-robbie.jpg" },
-
-    // Inspiration
-    { name: "Oprah Winfrey", theme: "inspiration", image: "https://example.com/oprah-winfrey.jpg" },
-    { name: "Michelle Obama", theme: "inspiration", image: "https://example.com/michelle-obama.jpg" },
-    { name: "Malala Yousafzai", theme: "inspiration", image: "https://example.com/malala-yousafzai.jpg" },
-    { name: "Tony Robbins", theme: "inspiration", image: "https://example.com/tony-robbins.jpg" },
-    { name: "Greta Thunberg", theme: "inspiration", image: "https://example.com/greta-thunberg.jpg" },
-    { name: "Nelson Mandela", theme: "inspiration", image: "https://example.com/nelson-mandela.jpg" },
-
-    // Serial Killer
-    { name: "Hannibal Lecter", theme: "serial killer", image: "https://example.com/hannibal-lecter.jpg" },
-    { name: "Ted Bundy", theme: "serial killer", image: "https://example.com/ted-bundy.jpg" },
-    { name: "Jeffrey Dahmer", theme: "serial killer", image: "https://example.com/jeffrey-dahmer.jpg" },
-    { name: "John Wayne Gacy", theme: "serial killer", image: "https://example.com/john-wayne-gacy.jpg" },
-    { name: "Jack the Ripper", theme: "serial killer", image: "https://example.com/jack-the-ripper.jpg" },
-    { name: "Aileen Wuornos", theme: "serial killer", image: "https://example.com/aileen-wuornos.jpg" },
-
-    // Politician
-    { name: "Vladimir Putin", theme: "politician", image: "https://example.com/vladimir-putin.jpg" },
-    { name: "Joe Biden", theme: "politician", image: "https://example.com/joe-biden.jpg" },
-    { name: "Barack Obama", theme: "politician", image: "https://example.com/barack-obama.jpg" },
-    { name: "Angela Merkel", theme: "politician", image: "https://example.com/angela-merkel.jpg" },
-    { name: "Justin Trudeau", theme: "politician", image: "https://example.com/justin-trudeau.jpg" },
-    { name: "Donald Trump", theme: "politician", image: "https://example.com/donald-trump.jpg" }
-  ];
-
-    const fartTexts = {
-  tech: [
-    "This fart has the power of 1.21 gigawatts! Perfect for a trip to the year 2050.",
-    "A fart so advanced, it could power a Tesla for a week.",
-    "This fart smells like innovation and a hint of burnt silicon.",
-    "A fart so futuristic, it could be the next big thing in AI.",
-    "This fart is blockchain-powered and 100% decentralized."
-  ],
-  music: [
-    "A fart so smooth, it could be the bassline for a hit song.",
-    "This fart has the rhythm of a drum solo and the melody of a violin.",
-    "A fart so catchy, it could top the Billboard charts.",
-    "This fart is so harmonious, it could be part of a symphony.",
-    "A fart so loud, it could replace the bass drop at a rave."
-  ],
-  action: [
-    "A fart so powerful, it could knock out a WWE wrestler.",
-    "This fart smells like victory and a hint of protein powder.",
-    "A fart so explosive, it could be used in an action movie.",
-    "This fart is so intense, it could be the climax of a Marvel movie.",
-    "A fart so fast, it could outrun a speeding bullet."
-  ],
-  drama: [
-    "A fart so dramatic, it deserves its own reality show.",
-    "This fart smells like roses... if roses were made of drama.",
-    "A fart so intense, it could win an Oscar.",
-    "This fart is so theatrical, it could star in a Shakespeare play.",
-    "A fart so emotional, it could make you cry."
-  ],
-  movies: [
-    "A fart so cinematic, it could be the climax of a blockbuster.",
-    "This fart smells like popcorn and a hint of Hollywood magic.",
-    "A fart so legendary, it could be directed by Spielberg.",
-    "This fart is so epic, it could be the plot twist of the century.",
-    "A fart so iconic, it could be the next meme sensation."
-  ],
-  inspiration: [
-    "A fart so inspiring, it could motivate a nation.",
-    "This fart smells like success and a hint of determination.",
-    "A fart so powerful, it could change the world.",
-    "This fart is so uplifting, it could be a self-help book.",
-    "A fart so motivational, it could make you run a marathon."
-  ],
-  "serial killer": [
-    "A fart so sinister, it could be the calling card of a serial killer.",
-    "This fart smells like danger and a hint of mystery.",
-    "A fart so chilling, it could be the soundtrack of a horror movie.",
-    "This fart is so creepy, it could scare even the bravest detective.",
-    "A fart so deadly, it could be used as a weapon."
-  ],
-  politician: [
-    "A fart so persuasive, it could pass any law.",
-    "This fart smells like promises and a hint of corruption.",
-    "A fart so diplomatic, it could solve world peace.",
-    "This fart is so strategic, it could win an election.",
-    "A fart so powerful, it could be the next political scandal."
-  ],
-  default: [
-    "This fart smells like mystery and a hint of curiosity.",
-    "A fart so unique, it defies all scientific explanation.",
-    "This fart could be the start of a new era.",
-    "A fart so mysterious, it could be from another dimension.",
-    "This fart is so strange, it could be the subject of a conspiracy theory."
-      ]
-    };
-
- function generateFart() {
-  const randomCelebrity = celebrities[Math.floor(Math.random() * celebrities.length)];
-  const theme = randomCelebrity.theme || "default";
-  const randomFartText = fartTexts[theme][Math.floor(Math.random() * fartTexts[theme].length)];
-
-  // Zeige das Bild, den Namen und den Text an
-  const celebrityImage = document.getElementById("celebrityImage");
-  const celebrityName = document.getElementById("celebrityName");
-  const fartAnalysis = document.getElementById("fartAnalysis");
-
-  celebrityImage.src = randomCelebrity.image;
-  celebrityImage.style.display = "block";
-  celebrityName.textContent = `Celebrity: ${randomCelebrity.name}`;
-  fartAnalysis.textContent = `Fart Analysis: ${randomFartText}`;
-}
-{
-    // JavaScript für den Contract-Balken
-    function copyContract() {
-      const contractInput = document.getElementById("contractAddress");
-      contractInput.select();
-      document.execCommand("copy");
-      alert("Contract address copied to clipboard!");
     }
   </script>
   
