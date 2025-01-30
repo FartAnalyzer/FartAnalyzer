@@ -452,14 +452,18 @@
       default: ["This fart smells like mystery and a hint of curiosity."]
     };
 
+    let isGenerating = false; // Flag to check if a generation is in progress
+
     function generateFart() {
+      if (isGenerating) return; // Don't start a new generation if one is already running
+
       const randomizerButton = document.getElementById("randomizerButton");
       const loadingOverlay = randomizerButton.querySelector(".loading-animation");
       const celebrityImage = document.getElementById("celebrityImage");
       const celebrityName = document.getElementById("celebrityName");
       const fartAnalysis = document.getElementById("fartAnalysis");
 
-      // Show loading animation
+      isGenerating = true; // Mark that we're generating
       randomizerButton.classList.add("loading");
       randomizerButton.disabled = true; // Disable button during loading
 
@@ -482,14 +486,28 @@
         // Hide loading animation
         randomizerButton.classList.remove("loading");
         randomizerButton.disabled = false; // Re-enable button
+        isGenerating = false; // Mark generation as complete
       }, 10000); // 10000ms matches the animation duration
     }
 
-    // Trigger randomizer every 10 seconds, but let the animation finish
-    setInterval(generateFart, 10000);
+    // Function to check if we can start a new generation
+    function canStartNewGeneration() {
+      return !isGenerating;
+    }
+
+    // Trigger randomizer every 10 seconds if not generating
+    setInterval(() => {
+      if (canStartNewGeneration()) {
+        generateFart();
+      }
+    }, 10000);
 
     // Manual button trigger
-    document.getElementById("randomizerButton").addEventListener("click", generateFart);
+    document.getElementById("randomizerButton").addEventListener("click", () => {
+      if (canStartNewGeneration()) {
+        generateFart();
+      }
+    });
 
     function copyContract() {
       const contractInput = document.getElementById("contractAddress");
@@ -503,10 +521,9 @@
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
       } else {
-        console.error(`Abschnitt mit der ID "${sectionId}" nicht gefunden.`)
+        console.error(`Abschnitt mit der ID "${sectionId}" nicht gefunden.`);
       }
     }
   </script>
-  
 </body>
 </html>
