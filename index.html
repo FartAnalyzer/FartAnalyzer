@@ -417,6 +417,52 @@
       alert("Contract address copied to clipboard!");
     }
 
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+  
+  <script>
+    const celebrities = [
+      { name: "Elon Musk", theme: "tech", image: "https://example.com/elon-musk.jpg" },
+      { name: "Taylor Swift", theme: "music", image: "https://example.com/taylor-swift.jpg" },
+      // ... (Rest der Liste)
+    ];
+
+    const fartTexts = {
+      tech: [
+        "This fart has the power of 1.21 gigawatts! Perfect for a trip to the year 2050.",
+        "A fart so advanced, it could power a Tesla for a week.",
+        // ... (Rest der Texte)
+      ],
+      // ... (Rest der Themen)
+    };
+
+    function generateFart() {
+      const randomCelebrity = celebrities[Math.floor(Math.random() * celebrities.length)];
+      const theme = randomCelebrity.theme || "default";
+      const randomFartText = fartTexts[theme][Math.floor(Math.random() * fartTexts[theme].length)];
+
+      const celebrityImage = document.getElementById("celebrityImage");
+      const celebrityName = document.getElementById("celebrityName");
+      const fartAnalysis = document.getElementById("fartAnalysis");
+
+      celebrityImage.src = randomCelebrity.image;
+      celebrityImage.style.display = "block";
+      celebrityName.textContent = `Celebrity: ${randomCelebrity.name}`;
+      fartAnalysis.textContent = `Fart Analysis: ${randomFartText}`;
+    }
+
+    function copyContract() {
+      const contractInput = document.getElementById("contractAddress");
+      contractInput.select();
+      document.execCommand("copy");
+      alert("Contract address copied to clipboard!");
+    }
+
     // JavaScript für den Randomizer
 const celebrities = [
   // Tech
