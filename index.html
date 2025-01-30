@@ -19,9 +19,12 @@
     }
 
     header {
-      padding: 40px 20px;
+      padding: 20px;
       background-color: #d2b48c;
       border-bottom: 5px solid #8b7355;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     header h1 {
@@ -41,6 +44,25 @@
       font-size: 1rem;
       color: #4b3621;
       margin-top: 5px;
+    }
+
+    .header-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .header-buttons button {
+      padding: 10px 20px;
+      background-color: #8b7355;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .header-buttons button:hover {
+      background-color: #6b4423;
     }
 
     main {
@@ -123,7 +145,7 @@
     }
 
     .content-grid ul li::before {
-      content: "💨";
+      content: "🚀";
       margin-right: 10px;
     }
 
@@ -232,14 +254,38 @@
         flex-direction: column;
         align-items: center;
       }
+
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .header-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .header-buttons button {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Fart Analyzer 🚀💨</h1>
-    <p><strong>The Quantum Memecoin:</strong> Where Science Meets Flatulence!</p>
-    <p class="quote">"E = mc²? More like E = mc💨!" – Professor Einstein</p>
+    <div class="header-buttons">
+      <button onclick="scrollToSection('roadmap')">Roadmap</button>
+      <button onclick="scrollToSection('tokenomics')">Tokenomics</button>
+    </div>
+    <div>
+      <h1>Fart Analyzer 🚀💨</h1>
+      <p><strong>The Quantum Memecoin:</strong> Where Science Meets Flatulence!</p>
+      <p class="quote">"E = mc²? More like E = mc💨!" – Professor Einstein</p>
+    </div>
+    <div class="header-buttons">
+      <button onclick="scrollToSection('randomizer')">Randomizer</button>
+      <button onclick="scrollToSection('links')">Links</button>
+    </div>
   </header>
   <main>
     <section>
@@ -297,15 +343,15 @@
         <h2>Tokenomics</h2>
         <p>Our tokenomics are designed to reward the community:</p>
         <ul>
-          <li>Total Supply: 1,000,000,000 </li>
-          <li>1% Marketing / Partnerships</li>
-          <li>1% Community Events / Raffle </li>
-          <li>3% Team-Wallet </li>
+          <li>Total Supply: 1,000,000,000 FART</li>
+          <li>50% allocated to the community</li>
+          <li>20% for development and marketing</li>
+          <li>30% for liquidity and partnerships</li>
         </ul>
       </div>
     </div>
 
-    <div class="randomizer">
+    <div class="randomizer" id="randomizer">
       <button onclick="generateFart()">Analyze a Random Fart 💨</button>
       <p id="fartResult"></p>
     </div>
@@ -316,7 +362,7 @@
     </div>
   </main>
 
-  <section>
+  <section id="links">
     <h2>Join the Community!</h2>
     <div class="social-buttons">
       <a href="https://x.com/FartAnalyzerSol" target="_blank">X (Twitter)</a>
