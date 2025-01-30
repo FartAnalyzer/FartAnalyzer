@@ -182,6 +182,8 @@
       font-size: 1rem;
       cursor: pointer;
       margin-bottom: 20px; /* Abstand unter dem Button */
+      position: relative;
+      overflow: hidden;
     }
 
     .randomizer button:hover {
@@ -286,6 +288,30 @@
         width: 100%;
       }
     }
+
+    .loading-animation {
+      width: 0;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      animation: none; /* Disable animation by default */
+    }
+
+    @keyframes loadAnimation {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    #randomizerButton.loading .loading-animation {
+      animation: loadAnimation 10s linear;
+    }
   </style>
 </head>
 <body>
@@ -373,7 +399,9 @@
     </div>
 
     <div class="randomizer" id="randomizer">
-      <button id="randomizerButton">Start Analyzing 💨</button>
+      <button id="randomizerButton">Start Analyzing 💨
+        <div class="loading-animation"></div>
+      </button>
       <div id="fartResult">
         <img id="celebrityImage" src="" alt="Celebrity Image" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px; display: none;">
         <p id="celebrityName"></p>
@@ -425,23 +453,40 @@
     };
 
     function generateFart() {
-      const randomCelebrity = celebrities[Math.floor(Math.random() * celebrities.length)];
-      const theme = randomCelebrity.theme || "default";
-      const randomFartText = fartTexts[theme][Math.floor(Math.random() * fartTexts[theme].length)];
-
-      // Show the image, name, and text
+      const randomizerButton = document.getElementById("randomizerButton");
+      const loadingOverlay = randomizerButton.querySelector(".loading-animation");
       const celebrityImage = document.getElementById("celebrityImage");
       const celebrityName = document.getElementById("celebrityName");
       const fartAnalysis = document.getElementById("fartAnalysis");
 
-      celebrityImage.src = randomCelebrity.image;
-      celebrityImage.style.display = "block";
-      celebrityName.textContent = `Celebrity: ${randomCelebrity.name}`;
-      fartAnalysis.textContent = `Fart Analysis: ${randomFartText}`;
+      // Show loading animation
+      randomizerButton.classList.add("loading");
+      randomizerButton.disabled = true; // Disable button during loading
+
+      // Clear previous content
+      celebrityImage.style.display = "none";
+      celebrityName.textContent = "";
+      fartAnalysis.textContent = "";
+
+      // Generate new content after animation
+      setTimeout(() => {
+        const randomCelebrity = celebrities[Math.floor(Math.random() * celebrities.length)];
+        const theme = randomCelebrity.theme || "default";
+        const randomFartText = fartTexts[theme][Math.floor(Math.random() * fartTexts[theme].length)];
+
+        celebrityImage.src = randomCelebrity.image;
+        celebrityImage.style.display = "block";
+        celebrityName.textContent = `Celebrity: ${randomCelebrity.name}`;
+        fartAnalysis.textContent = `Fart Analysis: ${randomFartText}`;
+
+        // Hide loading animation
+        randomizerButton.classList.remove("loading");
+        randomizerButton.disabled = false; // Re-enable button
+      }, 10000); // 10000ms matches the animation duration
     }
 
-    // Trigger randomizer every 10 seconds
-    setInterval(generateFart, 10000); // 10000 milliseconds = 10 seconds
+    // Trigger randomizer every 10 seconds, but let the animation finish
+    setInterval(generateFart, 10000);
 
     // Manual button trigger
     document.getElementById("randomizerButton").addEventListener("click", generateFart);
@@ -458,7 +503,7 @@
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
       } else {
-        console.error(`Abschnitt mit der ID "${sectionId}" nicht gefunden.`);
+        console.error(`Abschnitt mit der ID "${sectionId}" nicht gefunden.`)
       }
     }
   </script>
